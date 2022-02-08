@@ -65,4 +65,27 @@ genHTML = (data) => {
             employeeArray.push(managerBlock);
         }
     }
+
+    const employeeBlocks = employeeArray.join('');
+    const genTeam = genPage(employeeBlocks);
+    return genTeam;
 }
+
+const genPage = function (employeeBlocks) {
+    return`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+	    <meta charset="utf-8">
+	    <title>Team Generator</title>
+    </head>
+    <body>
+        <main>
+            <div>${employeeBlocks}</div>
+        </main>
+    </body>
+    </html>
+    `;
+}
+
+module.exports = genHTML;
