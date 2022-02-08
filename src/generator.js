@@ -4,8 +4,10 @@ const genIntern = function (intern) {
         <h4>${intern.name}</h4>
         <span>Intern</span>
         <ul>
-            <li>${intern.id}</li>
-            <li>${intern.email}</li>
+            <li>ID: ${intern.id}</li>
+            <li>
+                Email: <a href="mailto:${intern.email}">${intern.email}</a>
+            </li>
             <li>${intern.school}</li>
         </ul>
     </div>
@@ -18,9 +20,13 @@ const genEngineer = function (engineer) {
         <h4>${engineer.name}</h4>
         <span>Engineer</span>
         <ul>
-            <li>${engineer.id}</li>
-            <li>${engineer.email}</li>
-            <li>${engineer.github}</li>
+            <li>ID: ${engineer.id}</li>
+            <li>
+                Email: <a href="mailto:${engineer.email}">${engineer.email}</a>
+            </li>
+            <li>
+                Github: <a href="https://github.com/${engineer.github}">${engineer.github}</a>
+            </li>
         </ul>
     </div>
     `;
@@ -32,9 +38,11 @@ const genManager = function (manager) {
         <h4>${manager.name}</h4>
         <span>Manager</span>
         <ul>
-            <li>${manager.id}</li>
-            <li>${manager.email}</li>
-            <li>${manager.officeNumber}</li>
+            <li>ID: ${manager.id}</li>
+            <li>
+                Email: <a href="mailto:${manager.email}">${manager.email}</a>
+            </li>
+            <li>Office no. ${manager.officeNumber}</li>
         </ul>
     </div>
     `;
