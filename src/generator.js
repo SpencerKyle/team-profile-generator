@@ -34,7 +34,7 @@ const genManager = function (manager) {
         <ul>
             <li>${manager.id}</li>
             <li>${manager.email}</li>
-            <li>${officeNumber.github}</li>
+            <li>${manager.officeNumber}</li>
         </ul>
     </div>
     `;

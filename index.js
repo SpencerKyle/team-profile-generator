@@ -8,8 +8,6 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 const genHTML = require('./src/generator');
-const { listenerCount } = require('process');
-const M = require('minimatch');
 const employeeArray = [];
 
 const addManager = () => {
@@ -24,6 +22,19 @@ const addManager = () => {
                 } else {
                     console.log("Name is required!");
                     return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Please enter the Manager's ID.",
+            validate: nameInput => {
+                if (isNaN(nameInput)) {
+                    console.log("Please enter a valid number for the ID!");
+                    return false;
+                } else {
+                    return true;
                 }
             }
         },
@@ -70,7 +81,7 @@ const addEmployee = () => {
     return inquirer.prompt ([
         {
             type: 'list',
-            name: 'roles',
+            name: 'role',
             message: "Please select your Employee's role",
             choices: ['Engineer', 'Intern']
         },
@@ -84,6 +95,19 @@ const addEmployee = () => {
                 } else {
                     console.log('Please enter a name!')
                     return false;
+                }
+            }
+        },
+        {
+            type: 'input',
+            name: 'id',
+            message: "Please enter the Employee's ID.",
+            validate: nameInput => {
+                if (isNaN(nameInput)) {
+                    console.log("Please enter a valid number for the ID!");
+                    return false;
+                } else {
+                    return true;
                 }
             }
         },
@@ -111,7 +135,6 @@ const addEmployee = () => {
                     return true;
                 } else {
                     console.log('Please enter a valid github username!');
-                    return false;
                 }
             }
         },
@@ -125,7 +148,6 @@ const addEmployee = () => {
                     return true;
                 } else {
                     console.log('Please enter a school!');
-                    return false;
                 }
             }
         },
@@ -141,10 +163,10 @@ const addEmployee = () => {
         let employee;
 
         if (role === 'Intern') {
-            employee = new Intern (name, id, email, github);
+            employee = new Intern (name, id, email, school);
             console.log(employee);
         } else if (role ==='Engineer') {
-            employee = new Engineer (name, id, email, school);
+            employee = new Engineer (name, id, email, github);
             console.log(employee);
         }
 
